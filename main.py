@@ -40,13 +40,20 @@ def problems():
             except ValueError:
                 print('SQL Error!')
 
-            check = int(input('[0] STOP | [1] CONTINUE: '))
-            if check == 0: break
+            while True:
+                check = int(input('[0] STOP | [1] CONTINUE: '))
+                if check == 0:
+                    breakWhile = False
+                    break
+                elif check == 1:
+                    break
+                elif check != 0 and check != 1:
+                    print('Digite a opção correta!')
         
             Oficina(model, mark, year, plaque, color, fipeTable, defect, km) # Classe oficina
             Clientes(client, age) # Classe clientes
 
-            Clientes.listiningClients() # Chama a função para traz2er no console o que foi adicionado
+            Clientes.listiningClients() # Chama a função para trazer no console o que foi adicionado
             Oficina.listiningCars() # Chama a função para trazer no console o que foi adicionado
 
         if n == 0: break
@@ -96,8 +103,6 @@ def problems():
                     break
                 elif check != 0 and check != 1:
                     print('Digite a opção correta!')
-
-
 problems()
 connect.commit()
 connect.close()
